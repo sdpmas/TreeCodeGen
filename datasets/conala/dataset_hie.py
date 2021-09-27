@@ -29,8 +29,6 @@ from components.vocab import Vocab, VocabEntry
 from datasets.conala.evaluator import ConalaEvaluator
 from datasets.conala.util import *
 
-"""this is the modification to include leaves and nodes tensors for src sents"""
-"""no pretraining included tho"""
 
 #imports 
 
@@ -183,8 +181,7 @@ def preprocess_conala_dataset(train_file,test_file, grammar_file, src_freq=3, co
 
     action_lens = [len(e.tgt_actions) for e in train_examples]
 
-    pickle.dump(train_examples, open(os.path.join(out_dir, 'train.all_{}.bin'.format(num_mined)), 'wb'))
-    pickle.dump(full_train_examples, open(os.path.join(out_dir, 'train.gold.full.bin'), 'wb'))
+    pickle.dump(train_examples, open(os.path.join(out_dir, 'train.bin'), 'wb'))
     pickle.dump(dev_examples, open(os.path.join(out_dir, 'dev.bin'), 'wb'))
     pickle.dump(test_examples, open(os.path.join(out_dir, 'test.bin'), 'wb'))
 
@@ -193,14 +190,8 @@ def preprocess_conala_dataset(train_file,test_file, grammar_file, src_freq=3, co
     print('Avg action len: %d' % np.average(action_lens), file=sys.stderr)
     print('Actions larger than 100: %d' % len(list(filter(lambda x: x > 100, action_lens))), file=sys.stderr)
     
-    if mined_examples and api_examples:
-        vocab_name = 'vocab.src_freq%d.code_freq%d.mined_%s.%s.bin' % (src_freq, code_freq, num_mined, name)
-    elif mined_examples:
-        vocab_name = 'vocab.src_freq%d.code_freq%d.mined_%s.bin' % (src_freq, code_freq, num_mined)
-    elif api_examples:
-        vocab_name = 'vocab.src_freq%d.code_freq%d.%s.bin' % (src_freq, code_freq, name)
-    else:
-        vocab_name = 'vocab.src_freq%d.code_freq%d.bin' % (src_freq, code_freq)
+    
+    vocab_name = 'vocab.bin'
     pickle.dump(vocab, open(os.path.join(out_dir, vocab_name), 'wb'))
     
 

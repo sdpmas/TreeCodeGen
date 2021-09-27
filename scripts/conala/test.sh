@@ -1,7 +1,7 @@
 #!/bin/bash
 
 test_file="data/conala/test.bin"
-
+#load your model here
 model_file=''
 python exp.py \
     --cuda \

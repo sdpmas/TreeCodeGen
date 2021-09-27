@@ -19,7 +19,6 @@ batch_size=64
 max_epoch=70
 beam_size=30
 lr_decay_after_epoch=15
-model_name=retdistsmpl.dr${dropout}.lr${lr}.lr_de${lr_decay}.lr_da${lr_decay_after_epoch}.beam${beam_size}.$(basename ${vocab}).$(basename ${train_file}).seed${seed}
 
 
 mkdir -p logs/conala
