@@ -21,10 +21,19 @@ So please cite their work.
 
 ## Reference:
 ```
-
-@article{dahalanalysis,
-  title={Analysis of Tree-Structured Architectures for Code Generation},
-  author={Dahal, Samip and Maharana, Adyasha and Bansal, Mohit}
+@inproceedings{dahal-etal-2021-analysis,
+    title = "Analysis of Tree-Structured Architectures for Code Generation",
+    author = "Dahal, Samip  and
+      Maharana, Adyasha  and
+      Bansal, Mohit",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021",
+    month = aug,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.findings-acl.384",
+    doi = "10.18653/v1/2021.findings-acl.384",
+    pages = "4382--4391",
 }
 
 ```
